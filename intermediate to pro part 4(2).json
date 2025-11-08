@@ -1,0 +1,70 @@
+{
+  "name": "My workflow 4",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "8ea3ea3c-9436-4d23-ab27-a0434c1ea6fd",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "43805bd0-4ad3-4f78-a7b7-2ca426e9ac88",
+      "name": "Webhook",
+      "webhookId": "8ea3ea3c-9436-4d23-ab27-a0434c1ea6fd"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.email }}",
+        "subject": "Regarding the form you have fill ",
+        "emailType": "text",
+        "message": "=Hi {{ $json.body.firstName }},  Thanks for getting in touch! I really appreciate your interest in automating your workflows with low-code tools like n8n, Make, and Zapier.  I help businesses streamline repetitive tasks, connect apps, and save hours every week — all without complex coding. I’d love to learn more about what you’re trying to automate so I can share the best approach (and a few quick wins).  Could you reply to this email with a short description of your workflow or pain point? Once I have that, I’ll send you a brief outline of how we can solve it efficiently.  Looking forward to chatting!  Best, Jijesh Raj AI & Automation Freelancer 🌐 xyx.com 📧 jijeshrajk@gmail.com  📞 +91 7643521670",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "bf1b6fb2-3c39-49b9-80fb-d009cca0e715",
+      "name": "Send a message",
+      "webhookId": "0ed94cf7-5cea-4cb4-b036-eec7000ed517",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "CLVscvVNFLCQEDjx",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "54fbec2e-6d08-4760-af42-3e9b77fa731a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2f22362bcfc784e943ec2d2654415e5fe37b8e9ebaec65d2c7a4613197fa8cd6"
+  },
+  "id": "7FI9o4KmGtpUV7Mt",
+  "tags": []
+}
