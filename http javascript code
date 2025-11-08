@@ -1,0 +1,24 @@
+// Combine all articles into a single HTML message
+const articles = $json["articles"]; // Get the array from the API response
+
+// If data is nested inside an array (like when using split out), adjust accordingly
+const allArticles = Array.isArray(articles) ? articles : items[0].json.articles;
+
+let html = `<h2>📰 Today's News Summary</h2>`;
+for (const article of allArticles) {
+  html += `
+    <div style="margin-bottom: 20px;">
+      <h3>${article.title}</h3>
+      <p><b>Description:</b> ${article.description || "No description"}</p>
+      <a href="${article.url}" target="_blank">Read more</a>
+      <hr>
+    </div>
+  `;
+}
+
+return [{
+  json: {
+    subject: "Today's Top News",
+    body: html
+  }
+}];
